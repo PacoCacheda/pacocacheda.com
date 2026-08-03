@@ -225,11 +225,13 @@ footer .frow{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
 /* ---------- responsive ---------- */
 @media (max-width:900px){
-  .hero{grid-template-columns:1fr;gap:34px}
+  /* align-items vuelve a start: en una sola columna, stretch colapsaria el alto
+     del avatar a 0 porque su unica hija va en position:absolute y no aporta altura */
+  .hero{grid-template-columns:1fr;gap:34px;align-items:start}
   /* apilado: la foto ocupa todo el ancho, recorte cuadrado.
      Cuadrado deja ver el 67% del alto original; la cabeza ocupa del 5% al 59%,
      asi que entra entera con aire arriba y abajo. Un 4/3 solo dejaria ver el 50% y la cortaria. */
-  .avatar{max-width:none;min-height:0;aspect-ratio:1/1}
+  .avatar{max-width:none;min-height:0;aspect-ratio:1/1;align-self:start}
   .avatar img{object-position:50% 5%}
   .stats{grid-template-columns:repeat(2,1fr)}
   .grid2,.mini{grid-template-columns:1fr}
